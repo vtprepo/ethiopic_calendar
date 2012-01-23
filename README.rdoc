@@ -3,7 +3,6 @@ This is a Ruby implementation of the EthiopicCalendar based on the algorithm fou
 http://ethiopic.org/Calendars/
 = Install
  gem install ethiopic_calendar
-
 = Usage
 1. Include it in your Gemfile
    gem 'ethiopic_calendar'
