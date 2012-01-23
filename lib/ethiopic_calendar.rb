@@ -37,7 +37,7 @@ module EthiopicCalendar
       when 10 then month="ሰኔ"
       when 11 then month="ሐምሌ"
       when 12 then month="ነሃሴ"
-      when 13 then month="ጳጉሜ"
+      when 13 then month="ጳጉሜን" 
 
     end
 		date="#{month} #{day} #{year}"
