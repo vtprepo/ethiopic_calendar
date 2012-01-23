@@ -25,19 +25,19 @@ module EthiopicCalendar
 		day = (n%30 ) + 1
 
     case month
-      when 1 then month="መስከረም"
-      when 2 then month="ጥቅምት"
-      when 3 then month="ህዳር"
-      when 4 then month="ታህሳስ"
-      when 5 then month="ጥር"
-      when 6 then month="የካቲት"
-      when 7 then month="መጋቢት"
-      when 8 then month="ሚያዝያ"
-      when 9 then month="ግንቦት"
-      when 10 then month="ሰኔ"
-      when 11 then month="ሐምሌ"
-      when 12 then month="ነሃሴ"
-      when 13 then month="ጳጉሜን" 
+      when 1 then month=" መስከረም "
+      when 2 then month=" ጥቅምት "
+      when 3 then month=" ህዳር "
+      when 4 then month=" ታህሳስ "
+      when 5 then month=" ጥር "
+      when 6 then month=" የካቲት "
+      when 7 then month=" መጋቢት "
+      when 8 then month=" ሚያዝያ "
+      when 9 then month=" ግንቦት "
+      when 10 then month=" ሰኔ "
+      when 11 then month=" ሐምሌ "
+      when 12 then month=" ነሃሴ "
+      when 13 then month=" ጳጉሜን "  
 
     end
 		date="#{month} #{day} #{year}"
