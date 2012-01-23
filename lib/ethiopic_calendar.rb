@@ -1,22 +1,23 @@
+# encoding: utf-8
 module EthiopicCalendar
 
-	Amet_alem=-285019
-	Amet_mihret=1723856
-	Gregorian=1721426
+	AMETE_ALEM    = -285019
+	AMETE_MIHIRET = 1723856
+	GREGORIAN     = 1721426
 
 	def jdn_from_gregorian(year,month,day)
 		s   = ( year/4 ) - ( year - 1)/4 - ( year/100 ) + ( year - 1)/100 + ( year/ 400 ) - ( year - 1)/400
 		t   = ( 14 - month)/12
 		n   = 31 * t * (month - 1) + (1 - t) * (59 + s + 30 * (month - 3) + ( (3*month - 7)/ 5) ) + day - 1
-		j=Gregorian + 365 * (year - 1) + ( year - 1)/4 - ( year - 1)/100 + ( year - 1)/400 + n
+		j=GREGORIAN + 365 * (year - 1) + ( year - 1)/4 - ( year - 1)/100 + ( year - 1)/400 + n
 		return j
 	end
 
 	def jdn_to_ethiopian(jdn)
-		if jdn >=Amet_mihret + 365
-			era=Amet_mihret
+		if jdn >=AMETE_MIHIRET + 365
+			era=AMETE_MIHIRET
 		else
-			era=Amet_alem
+			era=AMETE_ALEM
 		end
 		r = (jdn - era)%1461
 		n = (r%365 ) + (365 * (r/1460 ))

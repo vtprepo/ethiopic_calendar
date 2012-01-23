@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'rake'
 require 'echoe'
-Echoe.new('ethiopic_calendar','0.1.1') do |p|
+Echoe.new('ethiopic_calendar','0.1.2') do |p|
   p.description      = "A simple Ethiopic to Gregorian calendar changer"
   p.url              = "http://github.com/vedtechpro/calendar_tools"
   p.author          = ["Gebreyohannes Zenebe", "Yared Getachew Tessema"]
