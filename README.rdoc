@@ -1,0 +1,23 @@
+= Ethiopic Calendar
+This is a Ruby implementation of the EthiopicCalendar based on the algorithm found on
+http://ethiopic.org/Calendars/
+= Install
+Documentation not completed
+
+= Usage
+1. Include it in your Gemfile
+   gem 'ethiopic_calendar'
+2. Add the require and include statements in config/application.rb
+   # ...
+   # This will include the ethiopic_calendar file
+   require 'ethiopic_calendar'
+   # This will enable you to use the methods inside EthiopicCalendar module without
+   # the qualified name, i.e EthiopicCalendar.fromGregorianToEthiopic
+   # instead you can simply say fromGregorianToEthiopic
+   include EthiopicCalendar
+= License
+GPL v3
+= Authors
+Gebreyohannes Zenebe, gebreyohannes@gemhalo.org
+Yared Getachew , yared@gemhalo.org
+
