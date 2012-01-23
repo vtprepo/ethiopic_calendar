@@ -1,5 +1,7 @@
+pkg
+Manifest
+doc
 .redcar
 *~
 .swp
-pkg
 pkg/**  

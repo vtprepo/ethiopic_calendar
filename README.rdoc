@@ -2,7 +2,7 @@
 This is a Ruby implementation of the EthiopicCalendar based on the algorithm found on
 http://ethiopic.org/Calendars/
 = Install
-Documentation not completed
+ gem install ethiopic_calendar --source http://gems.github.com
 
 = Usage
 1. Include it in your Gemfile
