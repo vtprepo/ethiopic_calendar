@@ -2,7 +2,7 @@
 This is a Ruby implementation of the EthiopicCalendar based on the algorithm found on
 http://ethiopic.org/Calendars/
 = Install
- gem install ethiopic_calendar --source http://gems.github.com
+ gem install ethiopic_calendar
 
 = Usage
 1. Include it in your Gemfile
@@ -16,7 +16,7 @@ http://ethiopic.org/Calendars/
    # instead you can simply say fromGregorianToEthiopic
    include EthiopicCalendar
 = License
-GPL v3
+This product is licensed under GPL-version 3 as defined in this site http://www.gnu.org/copyleft/gpl.html
 = Authors
 Gebreyohannes Zenebe, gebreyohannes@gemhalo.org
 Yared Getachew , yared@gemhalo.org
