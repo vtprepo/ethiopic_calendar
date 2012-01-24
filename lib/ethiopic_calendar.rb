@@ -68,6 +68,7 @@ module EthiopicCalendar
     #@return a formated Ethiopic date string
     #@example ethiopic_date_format(2004,5,21) will be ጥር  21 ቀን  2004ዓ/ም
     def ethiopic_date_format(year,month,day)
+      month_name =""
       case month
         when 1 then month_name=" መስከረም "
         when 2 then month_name=" ጥቅምት "
