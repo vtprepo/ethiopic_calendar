@@ -5,8 +5,8 @@ module EthiopicCalendar
 
   # Constants used
   public
-    #Ethiopic: Julian date offset
-    JD_EPOCH_OFFSET_AMETE_MIHRET = 1723856  # ዓ/ም
+    #Ethiopic: Julian date offset ዓ/ም
+    JD_EPOCH_OFFSET_AMETE_MIHRET = 1723856
 
     #Coptic : Julian date offset
     JD_EPOCH_OFFSET_COPTIC       = 1824665
@@ -15,11 +15,11 @@ module EthiopicCalendar
     JD_EPOCH_OFFSET_AMETE_ALEM   = -285019  # ዓ/ዓ
 
 
-    #Changes from in_date:EthiopicDate to GregorianDate
+    #Changes from Ethiopic date to Gregorian date
     #
     #@api public
-    #@param  in_date always must be year,month, day in that order
-    #@return GregorianDate is returned
+    #@param  year,month, day in that order
+    #@return Gregorian date is returned
     #@example fromEthiopicToGregorian('2004/5/21')
     def fromEthiopicToGregorian(year,month,day)
       #TODO : Handle Exceptions when there is a wrong input
@@ -38,11 +38,11 @@ module EthiopicCalendar
       return [gregorian_date[:year],gregorian_date[:month],gregorian_date[:day]].join("-").to_s
     end
 
-    #Changes from in_date:GregorianDate to EthiopicDate
+    #Changes from Gregorian date to Ethiopic date
     #
     #@api public
-    #@param  in_date always must be an aray containing year,month, day in that order
-    #@return EthiopicDate is returned
+    #@param  year,month, day in that order
+    #@return Ethiopic date is returned
     #@example fromEthiopicToGregorian('2012/5/21')
     def fromGregorianToEthiopic(year,month,day)
       #TODO : Handle Exceptions when there is a wrong input
@@ -67,7 +67,7 @@ module EthiopicCalendar
     #@api public
     #@return a formated Ethiopic date string
     #@example ethiopic_date_format(2004,5,21) will be ጥር  21 ቀን  2004ዓ/ም
-    def ethiopic_date_format(year,month,day)
+    def ethiopic_date_format(year,month,day,format="")
       month_name =""
       case month
         when 1 then month_name=" መስከረም "
