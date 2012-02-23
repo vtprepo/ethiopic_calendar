@@ -58,8 +58,8 @@ module EthiopicCalendar
 		  n = (r.modulo(365) ) + (365 * (r/1460 ))
   		ethiopic_date[:year] =4 * ((jdn - era)/1461) + r/365 - r/1460
 	  	ethiopic_date[:month] =(n/30) + 1
-		  ethiopic_date[:day] =(n.modulo(30)) + 1
-      return ethiopic_date.join("-")
+		ethiopic_date[:day] =(n.modulo(30)) + 1
+      return [ethiopic_date[:year],ethiopic_date[:month],ethiopic_date[:day]].join("-").to_s
     end
 
 
