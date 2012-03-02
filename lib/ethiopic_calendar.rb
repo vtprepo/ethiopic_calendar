@@ -20,7 +20,7 @@ module EthiopicCalendar
     #@api public
     #@param  in_date always must be year,month, day in that order
     #@return GregorianDate is returned
-    #@example fromEthiopicToGregorian('2004/5/21')
+    #@example fromEthiopicToGregorian(2004,5,21)
     
     def fromEthiopicToGregorian(year,month,day)
       #TODO : Handle Exceptions when there is a wrong input
@@ -42,9 +42,9 @@ module EthiopicCalendar
     #Changes from in_date:GregorianDate to EthiopicDate
     #
     #@api public
-    #@param  in_date always must be an aray containing year,month, day in that order
+    #@param  year,month, day in that order
     #@return EthiopicDate is returned
-    #@example fromEthiopicToGregorian('2012/5/21')
+    #@example fromEthiopicToGregorian(2012,5,21)
     def fromGregorianToEthiopic(year,month,day)
       #TODO : Handle Exceptions when there is a wrong input
       ethiopic_date = {:year=>-1,:month=>-1,:day => -1 }
@@ -67,7 +67,7 @@ module EthiopicCalendar
     #
     #@api public
     #@return a formated Ethiopic date string
-    #@example ethiopic_date_format(2004-5-21,"y-m-d") will be ጥር  21 ቀን  2004ዓ/ም
+    #@example ethiopic_date_format('2004-5-21') will be ጥር  21 ቀን  2004ዓ/ም
     def ethiopic_date_format(in_date)
         date_string=in_date.split("-")
 	year=date_string[0].to_i
@@ -103,7 +103,7 @@ module EthiopicCalendar
 		    n   = 31 * t * (month - 1) + (1 - t) * (59 + s + 30 * (month - 3) + ( (3*month - 7)/ 5) ) + day - 1
     		j   = JD_EPOCH_OFFSET_GREGORIAN + 365 * (year - 1) + ( year - 1)/4 - ( year - 1)/100 + ( year - 1)/400 + n
 		    return j
-	    end
+      end
       #Calculates the jdn from given Ethiopic calendar
       #
       #@api private
