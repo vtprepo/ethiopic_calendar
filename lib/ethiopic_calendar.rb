@@ -109,10 +109,13 @@ module EthiopicCalendar
       #@api private
       #@return jdn
       def jdn_from_ethiopic(year,month,day)
-        #TODO : to be implemented
-        jdn = 0
-        return jdn
+        if year <=0
+			era=JD_EPOCH_OFFSET_AMETE_ALEM
+		else
+			era=JD_EPOCH_OFFSET_AMETE_MIHRET
+		end
+        jdn = ( era + 365 ) + (365 * ( year - 1 )) + (year/4 ) + (30 * month) + (day - 31);  
+		return jdn;
 	    end
-
-
+	    
 end
