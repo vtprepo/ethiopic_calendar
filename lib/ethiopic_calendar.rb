@@ -1,5 +1,5 @@
 # encoding: utf-8
-module EthiopicCalendar
+class EthiopicCalendar
   # A Ruby implementation of Ethiopic Calendar based on the Mathematical algorithm
   # from http://ethiopic.org/Calendars/
 
@@ -24,19 +24,13 @@ module EthiopicCalendar
     
     def fromEthiopicToGregorian(year,month,day)
       #TODO : Handle Exceptions when there is a wrong input
-      gregorian_date = {:year => -1, :month => -1, :day => -1}
-      jdn = jdn_from_ethiopic(year,month,day)
-      if year <= 0
-        era = JD_EPOCH_OFFSET_AMETE_ALEM
-      else
-        era = JD_EPOCH_OFFSET_AMETE_MIHRET
-      end
-		  r = (jdn - era).modulo(1461)
-		  n = (r.modulo(365) ) + (365 * (r/1460 ))
-  		gregorian_date[:year]   = 4 * ((jdn - era)/1461) + r/365 - r/1460
-	  	gregorian_date[:month]  = (n/30) + 1
-		  gregorian_date[:day]    = (n.modulo(30)) + 1
-      return [gregorian_date[:year],gregorian_date[:month],gregorian_date[:day]].join("-").to_s
+      if (year <=0)
+			era=JD_EPOCH_OFFSET_AMETE_ALEM
+		else
+			era=JD_EPOCH_OFFSET_AMETE_MIHRET
+		end
+		jdn = jdn_from_ethiopic( year, month, day,era )
+		return gregorian_from_jdn(jdn)
     end
 
     #Changes from in_date:GregorianDate to EthiopicDate
@@ -89,7 +83,7 @@ module EthiopicCalendar
         when 12 then month_name=" ነሃሴ "
         when 13 then month_name=" ጳጉሜን "
       end
-    	date="#{month_name} #{day} ቀን  #{year} ዓ/ም"
+    	date="#{month_name} #{day} ቀን  #{year}ዓ/ም"
     end
 
     private
@@ -108,14 +102,49 @@ module EthiopicCalendar
       #
       #@api private
       #@return jdn
-      def jdn_from_ethiopic(year,month,day)
-        if year <=0
-			era=JD_EPOCH_OFFSET_AMETE_ALEM
+      def jdn_from_ethiopic(year,month,day,era)
+        jdn = ( era + 365 ) + (365 * ( year - 1 )) + (year/4 ) + (30 * month) + (day - 31)
+		return jdn
+	  end
+	  
+	  def gregorian_from_jdn(jdn)
+		date = {:year=>-1,:month=>-1,:day => -1 }
+		gregorian_date=Date.new
+		r2000 = (jdn - JD_EPOCH_OFFSET_GREGORIAN)%730485
+		r400  = (jdn - JD_EPOCH_OFFSET_GREGORIAN)%146097
+		r100  = r400%36524
+		r4    = r100%1461
+
+		n = (r4%365) + 365*(r4/1460)
+		s = r4/1095
+		aprime = 400 * ((jdn - JD_EPOCH_OFFSET_GREGORIAN)/146097)+ (100 *( r400/36524 ))+ (4 *( r100/1461 ))+ ( r4/365 ) - (r4/1460 ) - (r2000/730484 )
+		date[:year]   = aprime + 1
+		t = (364+s-n)/306
+		date[:month]  = t * ((n/31) + 1 ) + ( 1 - t ) * (((5*(n-s)+13)/153) +  1 )
+		n +=  1 - (r2000/730484)
+		date[:day] = n
+
+
+	   if ( (r100 == 0) && (n == 0) && (r400 != 0) )
+			date[:month] = 12
+			date[:day] = 31
 		else
-			era=JD_EPOCH_OFFSET_AMETE_MIHRET
+			MonthDays[2] = isGregorianLeap(date[:year]) ? 29 : 28
+			for i in 1..Nmonths
+				if (n <= MonthDays[i])
+					date[:day] = n
+					break
+				end
+				n -= MonthDays[i]
+			end
 		end
-        jdn = ( era + 365 ) + (365 * ( year - 1 )) + (year/4 ) + (30 * month) + (day - 31);  
-		return jdn;
-	    end
+		gregorian_date.year=date[:year] && gregorian_date.month=date[:month] && gregorian_date.day=date[:day]
+		
+		return gregorian_date
+	end
+	
+	def isGregorianLeap(year)
+		return (year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0))
+	end
 	    
 end
