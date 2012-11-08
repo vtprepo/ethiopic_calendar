@@ -111,7 +111,6 @@ class EthiopicCalendar
 	  
 	  def gregorian_from_jdn(jdn)
 		date = {:year=>-1,:month=>-1,:day => -1 }
-		gregorian_date=Date.new
 		r2000 = (jdn - JD_EPOCH_OFFSET_GREGORIAN)%730485
 		r400  = (jdn - JD_EPOCH_OFFSET_GREGORIAN)%146097
 		r100  = r400%36524
@@ -140,7 +139,7 @@ class EthiopicCalendar
 				n -= MonthDays[i]
 			end
 		end
-		gregorian_date.year=date[:year] && gregorian_date.month=date[:month] && gregorian_date.day=date[:day]
+		gregorian_date=Date.new(date[:year],date[:month],date[:day])
 		
 		return gregorian_date
 	end
