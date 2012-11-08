@@ -5,6 +5,8 @@ class EthiopicCalendar
 
   # Constants used
   public
+  	Nmonths = 12
+	MonthDays = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     #Ethiopic: Julian date offset
     JD_EPOCH_OFFSET_AMETE_MIHRET = 1723856  # ዓ/ም
 
