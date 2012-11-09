@@ -1,5 +1,5 @@
 # encoding: utf-8
-class EthiopicCalendar
+module EthiopicCalendar
   # A Ruby implementation of Ethiopic Calendar based on the Mathematical algorithm
   # from http://ethiopic.org/Calendars/
 
