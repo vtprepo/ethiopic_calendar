@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["G/yohannes Zenebe"]
   gem.email         = ["gebreyohannes@gemhalo.org"]
   gem.description   = %q{Simple calendar date conversion between Ethiopian and Gregorian}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.summary       = %q{date conversion from Gregorian to Ethiopic and vice versa}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
