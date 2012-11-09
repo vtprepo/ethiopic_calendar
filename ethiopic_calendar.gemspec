@@ -6,11 +6,11 @@ require 'ethiopic_calendar/version'
 Gem::Specification.new do |gem|
   gem.name          = "ethiopic_calendar"
   gem.version       = EthiopicCalendar::VERSION
-  gem.authors       = ["G/yohannes Zenebe"]
-  gem.email         = ["gebreyohannes@gemhalo.org"]
+  gem.authors       = ["G/yohannes Zenebe","Yared Getachew"]
+  gem.email         = ["gebreyohannes@gemhalo.org","yared@gemhalo.org"]
   gem.description   = %q{Simple calendar date conversion between Ethiopian and Gregorian}
   gem.summary       = %q{date conversion from Gregorian to Ethiopic and vice versa}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/vedtechpro/ethiopic_calendar"
 
   gem.files         = `git ls-files`.split("\n")
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
